@@ -32,19 +32,21 @@ const Layout = (props) => (
               {props.children}
             </section>
             <footer>
-              <section className="columns">
-                <section className="column">
-                  <h3>CG3.Media</h3>
-                  <small className="subtle">&copy; { new Date().getFullYear() } CG3.Media • All Rights Reserved.</small>
-                </section>
-                <section className="column">
-                  <a href="#">corey@cg3media.com</a> <br />
-                  <Link to="/about">About</Link> <br />
-                  <Link to="/work">Work</Link>
-                </section>
-                <section className="column">
-                  <a href="#">Twitter</a> <br />
-                  <a href="#">Instagram</a> <br />
+              <section className="container">
+                <section className="columns">
+                  <section className="column">
+                    <h3>CG3.Media</h3>
+                    <small className="subtle">&copy; { new Date().getFullYear() } CG3.Media • All Rights Reserved.</small>
+                  </section>
+                  <section className="column">
+                    <a href="#">corey@cg3media.com</a> <br />
+                    <Link to="/about">About</Link> <br />
+                    <Link to="/work">Work</Link>
+                  </section>
+                  <section className="column">
+                    <a rel="noopener noreferrer" target="_blank" href="https://twitter.com/cg3media">Twitter</a> <br />
+                    <a rel="noopener noreferrer" target="_blank"href="https://instagram.com/cg3media">Instagram</a> <br />
+                  </section>
                 </section>
               </section>
             </footer>

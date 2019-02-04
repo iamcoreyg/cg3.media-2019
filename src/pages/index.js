@@ -4,7 +4,7 @@ import Layout from "../components/layout"
 import SEO from "../components/seo"
 import { Link } from "gatsby"
 import anime from 'animejs'
-import { isMobile } from 'react-device-detect';
+import { isMobile, isBrowser } from 'react-device-detect';
 import codeImage from '../../public/static/code.jpg';
 import visualImage from '../../public/static/visuals.jpg';
 import strategyImage from '../../public/static/strategy.jpg';
@@ -21,7 +21,7 @@ class IndexPage extends React.Component {
       loop: false
     });
 
-    if (!isMobile) {
+    if (isBrowser) {
       let videoSource = document.querySelector('#myVideo source')
       let src = videoSource.dataset.src;
       videoSource.setAttribute('src', src)
@@ -31,7 +31,7 @@ class IndexPage extends React.Component {
   }
 
   componentDidUpdate() {
-    if (!isMobile) {
+    if (isBrowser) {
       let videoSource = document.querySelector('#myVideo source')
       let src = videoSource.dataset.src;
       videoSource.setAttribute('src', src)

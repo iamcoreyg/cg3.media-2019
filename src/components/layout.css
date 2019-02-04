@@ -306,6 +306,7 @@ svg {
   margin: auto;
   padding-right: 15px;
   padding-left: 15px;
+  max-width: 1200px;
 }
 
 .top-space {

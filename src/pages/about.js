@@ -76,12 +76,11 @@ class About extends React.Component {
                 </p>
 
                 <p>
-                  We've also built a few tools like Hype Link and Teleprompt.me. 
+                  We've also built a few tools like <a rel="noopener noreferrer"  target="_blank" href="https://hypel.ink">Hype Link</a> and <a rel="noopener noreferrer"  target="_blank" href="http://teleprompt.me">Teleprompt.me. </a>
                 </p>
 
                 <small className="subtle">Based in Los Angeles, CA</small>
 
-                
               </div>
               <SVG />
             </div>
