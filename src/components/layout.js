@@ -43,8 +43,8 @@ const Layout = (props) => (
                   <Link to="/work">Work</Link>
                 </section>
                 <section className="column">
-                  <a href="#">Twitter</a> <br />
-                  <a href="#">Instagram</a> <br />
+                  <a href="https://twitter.com/cg3media">Twitter</a> <br />
+                  <a href="https://instagram.com/cg3media">Instagram</a> <br />
                 </section>
               </section>
             </footer>
