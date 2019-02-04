@@ -17,6 +17,7 @@ class Work extends React.Component {
     }
 
     this.setProject = this.setProject.bind(this);
+    this.sliderInit = this.sliderInit.bind(this)
   }
 
   componentDidMount () {
@@ -55,14 +56,18 @@ class Work extends React.Component {
     }
   }
 
+  sliderInit() {
+    setTimeout(function(){
+      let images = document.querySelectorAll('img[data-src]')
+      images.forEach((image) => {
+        console.log('image', image)
+        let src = image.dataset.src;
+        image.setAttribute('src', src)
+      })
+    }, 1000)
+  }
+
   setProject = (e) => {
-    this.setState({
-      projectIsLoaded: false,
-      transitioning: true
-    })
-
-    document.querySelector('.open-project').classList.add('open')
-
     window.scroll({
       top: 0,
       left: 0, 
@@ -70,9 +75,15 @@ class Work extends React.Component {
     })
 
     let p = e.target.dataset.projectslug
-    setTimeout( function() {
+
+    this.setState({
+      project: Projects.all[p],
+      projectIsLoaded: false,
+      transitioning: true
+    })
+
+    setTimeout(function() {
       this.setState({
-        project: Projects.all[p],
         projectIsLoaded: true,
         transitioning: false
       })
@@ -87,25 +98,26 @@ class Work extends React.Component {
       slidesToShow: 1,
       slidesToScroll: 1,
       autoplay: true,
-      autoplaySpeed: 2500
+      autoplaySpeed: 2500,
+      lazyLoad: true,
     };
 
     return (
-      <Layout bgColor="#ff6747">
+      <Layout bgColor="#131318">
         <SEO title="Work" />
-          <link rel="stylesheet" type="text/css" charset="UTF-8" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.min.css" />
-          <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick-theme.min.css" />
+          {/* <link rel="stylesheet" type="text/css" charset="UTF-8" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.min.css" />
+          <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick-theme.min.css" /> */}
           
           <section className="container work-page top-space">
-            <h1 className="page-title">Selected Work</h1>
+            <h1 className="page-title primary">Selected Work</h1>
           </section>
            
           <section className={`open-project ${this.state.transitioning ? 'open' : ''} ${!this.state.projectIsLoaded ? '' : 'open black-bg'}`}>
             { this.state.transitioning && 
-              <div class="lds-ellipsis"><div></div><div></div><div></div><div></div></div>
+              <div className="lds-ellipsis"><div></div><div></div><div></div><div></div></div>
             }
 
-            { this.state.project && this.state.project.title && !this.state.transitioning &&
+            { this.state.project && !this.state.transitioning &&
               <section className="container top-space">
                 <div className="columns">
                   <div className="column">
@@ -123,10 +135,10 @@ class Work extends React.Component {
                   </div>
                 </div>
                 
-                <Slider {...settings}>
+                <Slider {...settings} onInit={this.sliderInit} afterChange={this.sliderInit}>
                     { 
                       this.state.project.slider.map(
-                        (img) => <div><img src={ img.url } /></div>
+                        (img) => <div><img data-src={ img.url } /></div>
                       )
                     }
                 </Slider>

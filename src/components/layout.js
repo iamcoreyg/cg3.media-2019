@@ -35,7 +35,7 @@ const Layout = (props) => (
               <section className="columns">
                 <section className="column">
                   <h3>CG3.Media</h3>
-                  <small class="subtle">&copy; { new Date().getFullYear() } CG3.Media • All Rights Reserved.</small>
+                  <small className="subtle">&copy; { new Date().getFullYear() } CG3.Media • All Rights Reserved.</small>
                 </section>
                 <section className="column">
                   <a href="#">corey@cg3media.com</a> <br />

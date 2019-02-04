@@ -6,6 +6,8 @@ const Project = (props) => (
       <div 
         className="project-image" 
         style={{backgroundImage: `url('${props.project.thumbnail}')`}}
+        data-projectslug={ props.projectSlug } 
+        onClick={ props.setProject }
       ></div>
       <section className="project-info-wrap">
         <div 

@@ -79,7 +79,7 @@ class About extends React.Component {
                   We've also built a few tools like Hype Link and Teleprompt.me. 
                 </p>
 
-                <small class="subtle">Based in Los Angeles, CA</small>
+                <small className="subtle">Based in Los Angeles, CA</small>
 
                 
               </div>

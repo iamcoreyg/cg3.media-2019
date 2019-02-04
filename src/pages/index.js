@@ -30,6 +30,14 @@ class IndexPage extends React.Component {
     AOS.init();
   }
 
+  componentDidUpdate() {
+    if (!isMobile) {
+      let videoSource = document.querySelector('#myVideo source')
+      let src = videoSource.dataset.src;
+      videoSource.setAttribute('src', src)
+    }
+  }
+
   render() {
     return (
       <Layout bgColor="white">
