@@ -292,6 +292,15 @@ svg {
   }
 }
 
+.fadein {
+  animation: fadein .5s;
+}
+
+@keyframes fadein {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
 .container {
   max-width: 90%;
   margin: auto;

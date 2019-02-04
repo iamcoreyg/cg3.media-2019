@@ -61,7 +61,7 @@ class IndexPage extends React.Component {
 
         <main className="home-2">
           <section className="container top-space bottom-space">
-            <h1 className="page-title primary">Empowering You</h1>
+            <h1 className="page-title primary">Let's Build.</h1>
             <h3 className="lighter">
               We're a boutique creative &amp;  technology company; working with small businesses
               and major companies. 

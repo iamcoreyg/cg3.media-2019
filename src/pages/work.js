@@ -57,13 +57,14 @@ class Work extends React.Component {
   }
 
   sliderInit() {
-    setTimeout(function(){
-      let images = document.querySelectorAll('img[data-src]')
-      images.forEach((image) => {
-        let src = image.dataset.src;
-        image.setAttribute('src', src)
-      })
-    }, 1000)
+    let images = document.querySelectorAll('img[data-src]')
+    images.forEach((image) => {
+      let src = image.dataset.src;
+      image.setAttribute('src', src)
+      image.removeAttribute('data-src')
+
+      image.classList.add('fadein')
+    })
   }
 
   setProject = (e) => {
@@ -97,15 +98,12 @@ class Work extends React.Component {
       slidesToShow: 1,
       slidesToScroll: 1,
       autoplay: true,
-      autoplaySpeed: 2500,
-      lazyLoad: true,
+      autoplaySpeed: 3000,
     };
 
     return (
       <Layout bgColor="#131318">
         <SEO title="Work" />
-          {/* <link rel="stylesheet" type="text/css" charset="UTF-8" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.min.css" />
-          <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick-theme.min.css" /> */}
           
           <section className="container work-page top-space">
             <h1 className="page-title primary">Selected Work</h1>
@@ -134,7 +132,7 @@ class Work extends React.Component {
                   </div>
                 </div>
                 
-                <Slider {...settings} onInit={this.sliderInit} afterChange={this.sliderInit}>
+                <Slider {...settings} onInit={this.sliderInit} onReInit={this.sliderInit} beforeChange={this.sliderInit}>
                     { 
                       this.state.project.slider.map(
                         (img) => <div><img data-src={ img.url } /></div>
