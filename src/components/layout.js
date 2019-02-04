@@ -29,7 +29,7 @@ const Layout = (props) => (
         >
           <main>
             <section className="page" style={{background: props.bgColor, backgroundImage: props.bgColor}}>
-              {props.children}
+              <div>{props.children}</div>
             </section>
             <footer>
               <section className="container">
