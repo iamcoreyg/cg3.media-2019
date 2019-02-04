@@ -60,7 +60,6 @@ class Work extends React.Component {
     setTimeout(function(){
       let images = document.querySelectorAll('img[data-src]')
       images.forEach((image) => {
-        console.log('image', image)
         let src = image.dataset.src;
         image.setAttribute('src', src)
       })
