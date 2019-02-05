@@ -20,21 +20,15 @@ class IndexPage extends React.Component {
       easing: 'easeOutElastic(1, .8)',
       loop: false
     });
-
-    if (isBrowser) {
-      let videoSource = document.querySelector('#myVideo source')
-      let src = videoSource.dataset.src;
-      videoSource.setAttribute('src', src)
-    }
-
+    
     AOS.init();
-  }
-
-  componentDidUpdate() {
+    
     if (isBrowser) {
-      let videoSource = document.querySelector('#myVideo source')
-      let src = videoSource.dataset.src;
-      videoSource.setAttribute('src', src)
+      setTimeout(function(){
+        let videoSource = document.querySelector('#myVideo source')
+        let src = videoSource.dataset.src;
+        videoSource.setAttribute('src', src)
+      }, 100)
     }
   }
 
@@ -46,7 +40,7 @@ class IndexPage extends React.Component {
         <main className="home-1">
           <div className="video-wrap">
             <video muted id="myVideo" autoPlay loop>
-                <source data-src={video} type="video/mp4" />
+                <source src={video} type="video/mp4" />
             </video>
           </div>
           <section className="container top-space">
